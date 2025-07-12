@@ -1,0 +1,68 @@
+=== Library Management System ===
+REST API Simulation
+================================
+? Adding sample books...
+
+--- POST /api/books (Add Book) ---
+? Book added successfully:
+Book{id=1, title='The Great Gatsby', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+
+--- POST /api/books (Add Book) ---
+? Book added successfully:
+Book{id=2, title='To Kill a Mockingbird', author='Harper Lee', isbn='978-0446310789', available=false} 
+
+--- POST /api/books (Add Book) ---
+? Book added successfully:
+Book{id=3, title='1984', author='George Orwell', isbn='978-0451524935', available=true}
+
+==================================================
+DEMONSTRATING ALL API OPERATIONS
+==================================================
+
+--- GET /api/books (Get All Books) ---
+? All books in catalog:
+Book{id=1, title='The Great Gatsby', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+Book{id=2, title='To Kill a Mockingbird', author='Harper Lee', isbn='978-0446310789', available=false} 
+Book{id=3, title='1984', author='George Orwell', isbn='978-0451524935', available=true}
+
+--- GET /api/books/1 (Get Book by ID) ---
+? Book found:
+Book{id=1, title='The Great Gatsby', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+
+--- GET /api/books/999 (Get Book by ID) ---
+? Book with ID 999 not found
+
+--- PATCH /api/books/1/availability (Update Availability) ---
+? Book availability updated:
+Book{id=1, title='The Great Gatsby', author='F. Scott Fitzgerald', isbn='978-0743273565', available=false}
+
+--- PATCH /api/books/2/toggle-availability (Toggle Availability) ---
+? Book availability toggled:
+Book{id=2, title='To Kill a Mockingbird', author='Harper Lee', isbn='978-0446310789', available=true}  
+
+--- PUT /api/books/1 (Update Book) ---
+? Book updated successfully:
+Book{id=1, title='The Great Gatsby (Updated)', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+
+--- GET /api/books (Get All Books) ---
+? All books in catalog:
+Book{id=1, title='The Great Gatsby (Updated)', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+Book{id=2, title='To Kill a Mockingbird', author='Harper Lee', isbn='978-0446310789', available=true}  
+Book{id=3, title='1984', author='George Orwell', isbn='978-0451524935', available=true}
+
+--- DELETE /api/books/3 (Delete Book) ---
+? Book with ID 3 deleted successfully
+
+==================================================
+FINAL STATE
+==================================================
+
+--- GET /api/books (Get All Books) ---
+? All books in catalog:
+Book{id=1, title='The Great Gatsby (Updated)', author='F. Scott Fitzgerald', isbn='978-0743273565', available=true}
+Book{id=2, title='To Kill a Mockingbird', author='Harper Lee', isbn='978-0446310789', available=true}  
+
+? Statistics:
+Total books: 2
+Book 1 exists: true
+Book 3 exists: false
